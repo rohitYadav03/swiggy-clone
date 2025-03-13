@@ -141,3 +141,8 @@
     display: flex;
    flex-wrap: wrap;
   }
+
+.btn-filter{
+  cursor: pointer;
+  background-color: #e2ae12;
+}  
