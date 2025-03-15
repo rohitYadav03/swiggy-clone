@@ -9,7 +9,7 @@ const ResturantCard = ({resData}) => {
          className="res-image" 
         alt="resturant image" 
         src={ IMG_URL + cloudinaryImageId}  />
-          <h3><strong>{name}</strong></h3>
+          <h3>{name}</h3>
           <h4>⭐{avgRating}</h4>
           <p>{cuisines.join(", ")}</p>
         <p>{locality}</p>

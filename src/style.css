@@ -146,3 +146,9 @@
   cursor: pointer;
   background-color: #e2ae12;
 }  
+
+.heading{
+  padding-left: 100px;
+  margin:5 0px;
+  font-style: bold;
+}
