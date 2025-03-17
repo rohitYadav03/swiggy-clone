@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { LOGO_URL } from "../utils/contants";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login")
     return (
       <div className="header">
         {/* Logo */}
-        <img
+     <Link to="/">
+     <img
           src={LOGO_URL}
           alt="swiggy-logo"
           className="app-logo"
         />
+     </Link>
   
         {/* Location */}
         <div className="location">
@@ -25,17 +28,20 @@ const Header = () => {
         <div className="nav-item">
           <ul>
             <li>
-              <i className="ri-briefcase-line"></i> Swiggy Corporate
+              <i className="ri-briefcase-line"></i> 
+              <Link to="/">Home</Link>
             </li>
             <li>
               <i className="ri-discount-percent-line"></i> Offers{" "}
               <span className="new-badge">NEW</span>
             </li>
             <li>
-              <i className="ri-question-line"></i> Help
+              <i className="ri-question-line"></i> 
+              <Link to= "/contact">Contact Us</Link>
             </li>
             <li>
-              <i className="ri-account-circle-line"></i> Sign In
+              <i className="ri-account-circle-line"></i> 
+              <Link to="/about">About Us</Link>
             </li>
             <li>
               <i className="ri-shopping-bag-line"></i> Cart{" "}

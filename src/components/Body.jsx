@@ -14,7 +14,7 @@ const Body = () => {
       try {
         setIsLoading(true);
         const data = await fetch(
-          "https://www.swiggy.com/dapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=22.8034668&lng=86.2323641&carousel=true&third_party_vendor=1"
+          "https://www.swiggy.com/dapi/restaurants/list/v5?offset=0&is-seo-homepage-enabled=true&lat=22.8034668&lng=86.232364"
         );
         const jsonData = await data.json();
         setListOfResturant(
@@ -23,13 +23,12 @@ const Body = () => {
         setfilterResturant(jsonData.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
         setIsLoading(false);
         
-        
       } catch (error) {
         console.error("Error fetching data:", error);
         setIsLoading(false);
       }
     };
-
+    
     swiggyData();
   }, []);
  
@@ -45,7 +44,7 @@ const Body = () => {
  
  <button onClick={() => {
   
- let filterRes =   listOfResturant.filter((curRes) => curRes.info.name.toLowerCase().includes(serchText.toLowerCase()))
+ let filterRes =   listOfResturant.filter((curRes) => curRes.info.name.toLowerCase().includes(serchText.trim().toLowerCase()))
  setfilterResturant(filterRes)
  }}>Search</button>
 
