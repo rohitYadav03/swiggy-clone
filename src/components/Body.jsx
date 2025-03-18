@@ -1,6 +1,7 @@
 import ResturantCard from "./ResturantCard";
 import { useEffect, useState } from "react";
 import ShimmerCard from "./Shimmer.jsx";
+import { NavLink} from "react-router-dom";
 
 const Body = () => {
   const [listOfResturant, setListOfResturant] = useState([]);
@@ -79,7 +80,7 @@ const Body = () => {
         ) : (
           // Show actual restaurant cards once data is loaded
           filterResturant.map((curRes) => (
-            <ResturantCard key={curRes.info.id} resData={curRes} />
+           <NavLink to={"/resturant/"+ curRes.info.id} key={curRes.info.id}> <ResturantCard resData={curRes} /></NavLink>
           ))
         )}
       </div>

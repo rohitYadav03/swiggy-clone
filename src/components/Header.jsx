@@ -33,9 +33,9 @@ const Header = () => {
             </li>
             <li>
               <i className="ri-discount-percent-line"></i> 
-              {/* Offers{" "}
-              <span className="new-badge">NEW</span> */}
-              <Link to="/resturant/45">Menu</Link>
+              Offers{" "}
+              <span className="new-badge">NEW</span>
+             
             </li>
             <li>
               <i className="ri-question-line"></i> 

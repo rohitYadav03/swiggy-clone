@@ -235,3 +235,12 @@
   height: 30px;
   margin: 5px;
 }
+
+a {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Inherits parent text color */
+}
+
+a.active {
+  color: inherit; /* Removes active state color */
+}
