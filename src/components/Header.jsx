@@ -32,8 +32,10 @@ const Header = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <i className="ri-discount-percent-line"></i> Offers{" "}
-              <span className="new-badge">NEW</span>
+              <i className="ri-discount-percent-line"></i> 
+              {/* Offers{" "}
+              <span className="new-badge">NEW</span> */}
+              <Link to="/resturant/45">Menu</Link>
             </li>
             <li>
               <i className="ri-question-line"></i> 
