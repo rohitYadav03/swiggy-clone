@@ -2,6 +2,7 @@ import ResturantCard from "./ResturantCard";
 import { useEffect, useState } from "react";
 import ShimmerCard from "./Shimmer.jsx";
 import { NavLink} from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus.jsx";
 
 const Body = () => {
   const [listOfResturant, setListOfResturant] = useState([]);
@@ -9,7 +10,10 @@ const Body = () => {
   const [serchText, setSerchText] = useState("")
  const [filterResturant, setfilterResturant] = useState([]);
  const [apiData , setApiData]  = useState(null);
+
  
+
+
   useEffect(() => {
     const swiggyData = async () => {
       try {
@@ -40,7 +44,12 @@ const Body = () => {
     swiggyData();
   }, []);
 
-
+  const onlineStatus = useOnlineStatus();  
+  if (!onlineStatus) {  
+    console.log("offline");
+    
+    return <h1>You are offline</h1>;  
+  }
 
   return (
     <div className="body">
