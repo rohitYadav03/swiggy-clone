@@ -237,10 +237,10 @@
 }
 
 a {
-  text-decoration: none; /* Removes underline */
-  color: inherit; /* Inherits parent text color */
+  text-decoration: none; 
+  color: inherit; 
 }
 
 a.active {
-  color: inherit; /* Removes active state color */
+  color: inherit; 
 }
