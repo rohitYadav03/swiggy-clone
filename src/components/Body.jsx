@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import ShimmerCard from "./Shimmer.jsx";
 import { NavLink} from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus.jsx";
+import { withVegLabel } from "./ResturantCard";
 
 const Body = () => {
   const [listOfResturant, setListOfResturant] = useState([]);
@@ -11,7 +12,7 @@ const Body = () => {
  const [filterResturant, setfilterResturant] = useState([]);
  const [apiData , setApiData]  = useState(null);
 
- 
+ const ResturantVeg = withVegLabel(ResturantCard)
 
 
   useEffect(() => {
@@ -42,7 +43,14 @@ const Body = () => {
     };
 
     swiggyData();
+    console.log("list",listOfResturant);
+    
   }, []);
+
+  useEffect(() => {
+console.log("list", listOfResturant);
+
+  },[listOfResturant])
 
   const onlineStatus = useOnlineStatus();  
   if (!onlineStatus) {  
@@ -57,9 +65,9 @@ const Body = () => {
       <div className="feature-box">
 
  <div className="serch-box">
- <input type="text" placeholder="Search..." value={serchText} onChange={(event) => setSerchText(event.target.value)}></input>
+ <input className="border" type="text" placeholder="Search..." value={serchText} onChange={(event) => setSerchText(event.target.value)}></input>
 
- <button onClick={() => {
+ <button className="border" onClick={() => {
 
  let filterRes =   listOfResturant.filter((curRes) => curRes.info.name.toLowerCase().includes(serchText.trim().toLowerCase()))
  setfilterResturant(filterRes)
@@ -69,7 +77,7 @@ const Body = () => {
 
       <div className="filter-btn">
       <button
-          className="btn-filter"
+          className="btn-filter border border-black text-black px-4 py-2 "
           onClick={() => {
             let filterRes = filterResturant.filter(
               (curRes) => curRes.info.avgRating > 4.2
@@ -79,7 +87,7 @@ const Body = () => {
         >
           Top Rated Resturant
         </button>
-        <button onClick={() => {
+        <button className="border" onClick={() => {
           setfilterResturant(apiData || listOfResturant)
           
         }}> Back to All </button>
@@ -96,9 +104,13 @@ const Body = () => {
             .map((_, index) => <ShimmerCard key={index} />)
         ) : (
           // Show actual restaurant cards once data is loaded
-          filterResturant.map((curRes) => (
-           <NavLink to={"/resturant/"+ curRes.info.id} key={curRes.info.id}> <ResturantCard resData={curRes} /></NavLink>
+          filterResturant.map((curRes) => ( 
+           <NavLink to={"/resturant/"+ curRes.info.id} key={curRes.info.id}>{curRes?.info?.veg  ? <ResturantVeg resData={curRes} /> :  <ResturantCard resData={curRes} />}</NavLink>
+         
+           
           ))
+        
+          
         )}
       </div>
     </div>

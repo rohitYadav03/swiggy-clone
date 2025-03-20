@@ -127,7 +127,7 @@
   .res-card:hover{
    border: 1px solid black;
    cursor: pointer;
-   transform: scale(0.9);
+   /* transform: scale(0.9); */
   }
 .res-image{
   width: 250px;
