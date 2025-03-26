@@ -15,7 +15,6 @@ const ResturantCard = ({resData}) => {
           <p>{cuisines.join(", ")}</p>
         <p>{locality}</p>
         <h4>{costForTwo}</h4>
-          
         </div>
       )
     }

@@ -1,6 +1,7 @@
 
 import { useParams } from "react-router";
 import useResturantMenu from "../utils/useResturantMenu";
+import { useEffect } from "react";
 
 // import {MENU_API} from "../utils/contants"
 const ResturantMenu = () => {
@@ -25,13 +26,22 @@ const {resId} = useParams();
     areaName,
     sla,
   } = resInfo?.data?.cards[2]?.card?.card?.info || {};
+console.log("hello")
 
-  // console.log(
-  //   resInfo?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
-  // );
+  console.log(
+    resInfo?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
+  );
 
   const { itemCards = [] } = resInfo?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card || {};
+console.log("item card", itemCards)
+  // console.log(itemCards);
 
+// useEffect(() => {
+//   console.log("hello");
+  
+//   console.log(resInfo?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card)
+// });
+  
   return (
     <div>
       <br></br>

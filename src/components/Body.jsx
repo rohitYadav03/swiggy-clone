@@ -47,10 +47,9 @@ const Body = () => {
     
   }, []);
 
-  useEffect(() => {
-console.log("list", listOfResturant);
-
-  },[listOfResturant])
+//   useEffect(() => {
+// console.log("list", listOfResturant);
+// },[listOfResturant])
 
   const onlineStatus = useOnlineStatus();  
   if (!onlineStatus) {  
